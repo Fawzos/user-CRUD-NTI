@@ -1,0 +1,52 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-4">
+    <h4 class="text-primary">single Users</h4>
+    {{#unless ifFound}}
+    <div class="alert aler-danger">
+        No Users Found
+    </div>
+    {{else}}
+    <table class="table table-stripped">
+        <tr>
+            <td colspan="2">Id: {{user.id}}</td>
+        </tr>
+        <tr>
+            <td>Name: {{user.name}}</td>
+            <td>Age: {{user.age}}</td>
+        </tr>
+        <tr>
+            <td>email: {{user.email}}</td>
+            <td>password: {{user.password}}</td>
+        </tr>
+    </table>
+    <h4>Addresses</h4>
+    <table class="table table-borderd">
+        <thead>
+            <tr>
+                <th>addr type</th>
+                <th>addr Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#unless hasAddress}}
+            <tr class="alert aler-danger">
+                <td colspan="2" class="text-center">No Addresses</td>
+            </tr>
+            {{else}}
+            {{#each user.addresses}}
+            <tr>
+                <td>{{this.addressType}}</td>
+                <td>{{this.addressDetails}}</td>
+                <td>
+                    <a href="/editAddress/{{this.userId}}/{{this.id}}" class="btn btn-warining">Edit</a>
+                    <a href="/deleteAddress/{{this.userId}}/{{this.id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/unless}}
+        </tbody>
+    </table>
+    {{/unless}}
+</section>
+{{>footer}}

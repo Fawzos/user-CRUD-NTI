@@ -1,0 +1,18 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-4">
+    <div class="row">
+        <form method="post">
+            <div class="col-6 mb-3">
+                <input class="form-control" placeholder="address Type" name="addrType" value="{{address.addressType}}">
+            </div>
+            <div class="col-6 mb-3">
+                <input class="form-control" placeholder="Address Details" name="addrDetails" value="{{address.addressDetails}}">
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Edit Address</button>
+            </div>
+        </form>
+    </div>
+</section>
+{{>footer}}

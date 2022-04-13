@@ -1,0 +1,37 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-4">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if isEmpty}}
+            <tr class="alert alert-danger">
+                <td colspan="3" class="alert alert-danger text-center">
+                    No Users Yet!
+                </td>
+            </tr>
+            {{else}}
+            {{#each users}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>
+                    <a href="/showSingle/{{this.id}}" class="btn btn-primary mx-2">Show</a>
+                    <a href="/editUser/{{this.id}}" class="btn btn-warning mx-2">Edit</a>
+                    <a href="/deleteUser/{{this.id}}" class="btn btn-danger mx-2">Delete</a>
+                    <a href="/addAddress/{{this.id}}" class="btn btn-success mx-2">Add Address</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/if}}
+        </tbody>
+    </table>
+</section>
+
+{{>footer}}
